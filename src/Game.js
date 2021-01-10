@@ -4,22 +4,31 @@ Pokeball.Game.prototype = {
 		this.add.sprite(0, 0, 'screen-bg');
 		this.add.sprite(0, 0, 'panel');
 		this.physics.startSystem(Phaser.Physics.ARCADE);
-		this.fontSmall = { font: "16px Arial", fill: "#fff" };
-		this.fontBig = { font: "24px Arial", fill: "#fff" };
+		this.fontSmall = { font: "12px Arial", fill: "#fff" };
+		this.fontBig = { font: "20px Arial", fill: "#fff" };
 		this.fontMessage = { font: "24px Arial", fill: "#fff",  align: "center", stroke: "black", strokeThickness: 4 };
 		this.timer = 0;
+		this.points = 0;
 		this.totalTimer = 0;
 		this.level = 1;
 		this.maxLevels = 8;
 		this.movementForce = 10;
 		this.ballStartPos = { x: Pokeball._WIDTH*0.5, y: 450 };
+		this.counter = 0;
 
 		this.pauseButton = this.add.button(Pokeball._WIDTH-8, 8, 'button-pause', this.managePause, this);
 		this.pauseButton.anchor.set(1,0);
 		this.pauseButton.input.useHandCursor = true;
-		this.timerText = this.game.add.text(15, 15, "Time: "+this.timer, this.fontBig);
-		this.levelText = this.game.add.text(120, 10, "Level: "+this.level+" / "+this.maxLevels, this.fontSmall);
-		this.totalTimeText = this.game.add.text(120, 30, "Total time: "+this.totalTimer, this.fontSmall);
+		this.timerText = this.game.add.text(6, 10, "Time: "+this.timer, this.fontBig);
+		this.levelText = this.game.add.text(195, 7, "Level: "+this.level+" / "+this.maxLevels, this.fontSmall);
+		this.totalTimeText = this.game.add.text(195, 27, "Total time: "+this.totalTimer, this.fontSmall);
+		this.pointsText = this.game.add.text(98, 10, "Points: "+this.points, this.fontBig);
+
+		this.bomb1 = this.add.sprite(Pokeball._WIDTH*0.5, 190, 'bomb');
+		this.physics.enable(this.bomb1, Phaser.Physics.ARCADE);
+		this.bomb1.anchor.set(0.5);
+		this.bomb1.body.setSize(2, 2);
+
 
 		this.hole = this.add.sprite(Pokeball._WIDTH*0.5, 90, 'hole');
 		this.physics.enable(this.hole, Phaser.Physics.ARCADE);
@@ -32,7 +41,7 @@ Pokeball.Game.prototype = {
 		this.ball.body.setSize(18, 18);
 		this.ball.body.bounce.set(0.3, 0.3);
 
-		this.initLevels();
+		this.initLevels(this.bomb1);
 		this.showLevel(1);
 		this.keys = this.game.input.keyboard.createCursorKeys();
 
@@ -50,7 +59,7 @@ Pokeball.Game.prototype = {
 		this.borderGroup.create(Pokeball._WIDTH-2, 0, 'border-vertical');
 		this.borderGroup.setAll('body.immovable', true);
 	},
-	initLevels: function() {
+	initLevels: function(bomb1) {
 		this.levels = [];
 		this.levelData = [
 			[
@@ -127,7 +136,6 @@ Pokeball.Game.prototype = {
 				{ x: 200, y: 320, t: 'w' },
 				{ x: 25, y: 396, t: 'w' },
 			]
-			
 		];
 		for(var i=0; i<this.maxLevels; i++) {
 			var newLevel = this.add.group();
@@ -176,9 +184,15 @@ Pokeball.Game.prototype = {
 		else if(this.keys.down.isDown) {
 			this.ball.body.velocity.y += this.movementForce;
 		}
+		this.physics.arcade.collide(this.ball, this.bomb1, this.bombCollision, null, this);
 		this.physics.arcade.collide(this.ball, this.borderGroup, this.wallCollision, null, this);
 		this.physics.arcade.collide(this.ball, this.levels[this.level-1], this.wallCollision, null, this);
 		this.physics.arcade.overlap(this.ball, this.hole, this.finishLevel, null, this);
+		
+	},
+	bombCollision: function() {
+		alert('You are dead.');
+			this.game.state.start('Menu');
 	},
 	wallCollision: function() {
 		// Wibracje
@@ -212,6 +226,10 @@ Pokeball.Game.prototype = {
 			this.ball.body.velocity.x = 0;
 			this.ball.body.velocity.y = 0;
 			this.showLevel();
+
+			if(this.counter == 0) {
+				this.bomb1.destroy();
+			}
 		}
 	}
 };
