@@ -186,12 +186,16 @@ Pokeball.Game.prototype = {
 		}
 		this.physics.arcade.collide(this.ball, this.bomb1, this.bombCollision, null, this);
 		this.physics.arcade.collide(this.ball, this.borderGroup, this.wallCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.levels[this.level-1], this.wallCollision, null, this);
 		this.physics.arcade.overlap(this.ball, this.hole, this.finishLevel, null, this);
 		
 	},
 	bombCollision: function() {
 		alert('You are dead.');
 			this.game.state.start('Menu');
+	},
+	wallCollision: function() {
+		// Wibracje
 	},
 	handleOrientation: function(e) {
 		// Device Orientation
