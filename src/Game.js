@@ -10,7 +10,7 @@ Pokeball.Game.prototype = {
 		this.timer = 0;
 		this.totalTimer = 0;
 		this.level = 1;
-		this.maxLevels = 5;
+		this.maxLevels = 8;
 		this.movementForce = 10;
 		this.ballStartPos = { x: Pokeball._WIDTH*0.5, y: 450 };
 
@@ -54,6 +54,7 @@ Pokeball.Game.prototype = {
 		this.levels = [];
 		this.levelData = [
 			[
+				{ x: 96, y: 324, t: 'w' },
 				{ x: 96, y: 224, t: 'w' }
 			],
 			[
@@ -62,11 +63,18 @@ Pokeball.Game.prototype = {
 				{ x: 72, y: 150, t: 'w' }
 			],
 			[
+				{ x: 25, y: 224, t: 'w' },
+				{ x: 150, y: 224, t: 'w' },
+				{ x: 100, y: 320, t: 'h' },
+				{ x: 200, y: 320, t: 'h' },
+			],
+			[
 				{ x: 64, y: 352, t: 'h' },
 				{ x: 224, y: 352, t: 'h' },
 				{ x: 0, y: 240, t: 'w' },
 				{ x: 128, y: 240, t: 'w' },
-				{ x: 200, y: 52, t: 'h' }
+				{ x: 200, y: 52, t: 'h' },
+				{ x: 85, y: 52, t: 'h' }
 			],
 			[
 				{ x: 78, y: 352, t: 'h' },
@@ -84,7 +92,42 @@ Pokeball.Game.prototype = {
 				{ x: 256, y: 240, t: 'h' },
 				{ x: 180, y: 52, t: 'h' },
 				{ x: 52, y: 148, t: 'w' }
+			],
+			[
+				{ x: 25, y: 50, t: 'h' },
+				{ x: 25, y: 150, t: 'w' },
+				{ x: 175, y: 150, t: 'w' },
+				{ x: 25, y: 246, t: 'w' },
+				{ x: 170, y: 246, t: 'w' },
+				{ x: 90, y: 246, t: 'w' },
+				{ x: 120, y: 320, t: 'w' },
+				{ x: 200, y: 320, t: 'w' },
+				{ x: 25, y: 275, t: 'h' },
+				{ x: 271, y: 150, t: 'h' },
+				{ x: 25, y: 390, t: 'w' },
+				{ x: 145, y: 390, t: 'w' },
+			],
+			[
+				{ x: 25, y: 70, t: 'h' },
+				{ x: 25, y: 175, t: 'h' },
+				{ x: 25, y: 300, t: 'h' },
+				{ x: 80, y: 50, t: 'h' },
+				{ x: 80, y: 150, t: 'h' },
+				{ x: 80, y: 300, t: 'h' },
+				{ x: 140, y: 175, t: 'h' },
+				{ x: 140, y: 245, t: 'h' },
+				{ x: 200, y: 80, t: 'h' },
+				{ x: 200, y: 150, t: 'h' },
+				{ x: 200, y: 300, t: 'h' },
+				{ x: 260, y: 50, t: 'h' },
+				{ x: 260, y: 200, t: 'h' },
+				{ x: 260, y: 300, t: 'h' },
+				{ x: 95, y: 175, t: 'w' },
+				{ x: 104, y: 396, t: 'w' },
+				{ x: 200, y: 320, t: 'w' },
+				{ x: 25, y: 396, t: 'w' },
 			]
+			
 		];
 		for(var i=0; i<this.maxLevels; i++) {
 			var newLevel = this.add.group();
