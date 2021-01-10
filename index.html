@@ -16,8 +16,24 @@
 	<script src="src/Menu.js"></script>
 	<script src="src/Game.js"></script>
 </head>
-<a href="www.tibia.com" type="submit" style="display: none;position: absolute; width: 100vh; height: 100vh">
 <body>
+	<button onclick="testDeviceOrientation()">Test Device Orientation</button>
+	<script>
+		function testDeviceOrientation() {
+			if (typeof DeviceOrientationEvent !== 'function') {
+				return setResult('DeviceOrientationEvent not detected')
+			}
+			if (typeof DeviceOrientationEvent.requestPermission !== 'function') {
+				return setResult('DeviceOrientationEvent.requestPermission not detected')
+			}
+			DeviceOrientationEvent.requestPermission().then(function(result) {
+				return setResult(result);});
+			}
+
+			function setResult(result) {
+			document.getElementById('result').innerHTML = 'RESULT: ' + result;
+		}
+	</script>
 	
 <script>
 	(function() {
@@ -29,5 +45,5 @@
 		game.state.start('Boot');
 	})();
 </script>
-</body></a>
+</body>
 </html>
