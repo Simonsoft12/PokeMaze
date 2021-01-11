@@ -24,11 +24,10 @@ Pokeball.Game.prototype = {
 		this.totalTimeText = this.game.add.text(195, 27, "Total time: "+this.totalTimer, this.fontSmall);
 		this.pointsText = this.game.add.text(98, 10, "Points: "+this.points, this.fontBig);
 
-		this.bomb1 = this.add.sprite(Pokeball._WIDTH*0.5, 190, 'bomb');
-		this.physics.enable(this.bomb1, Phaser.Physics.ARCADE);
-		this.bomb1.anchor.set(0.5);
-		this.bomb1.body.setSize(2, 2);
-
+		this.bonus1 = this.add.sprite(160, 290, 'bonus');
+		this.physics.enable(this.bonus1, Phaser.Physics.ARCADE);
+		this.bonus1.anchor.set(0.5);
+		this.bonus1.body.setSize(2, 2);
 
 		this.hole = this.add.sprite(Pokeball._WIDTH*0.5, 90, 'hole');
 		this.physics.enable(this.hole, Phaser.Physics.ARCADE);
@@ -103,8 +102,8 @@ Pokeball.Game.prototype = {
 				{ x: 52, y: 148, t: 'w' }
 			],
 			[
-				{ x: 25, y: 50, t: 'h' },
-				{ x: 25, y: 150, t: 'w' },
+				{ x: 20, y: 50, t: 'h' },
+				{ x: 20, y: 150, t: 'w' },
 				{ x: 175, y: 150, t: 'w' },
 				{ x: 25, y: 246, t: 'w' },
 				{ x: 170, y: 246, t: 'w' },
@@ -185,14 +184,127 @@ Pokeball.Game.prototype = {
 			this.ball.body.velocity.y += this.movementForce;
 		}
 		this.physics.arcade.collide(this.ball, this.bomb1, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb2, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb3, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb4, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb5, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb6, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb7, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb8, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb9, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb10, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb11, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb12, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bomb13, this.bombCollision, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus1, this.bonusCollision1, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus2, this.bonusCollision2, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus3, this.bonusCollision3, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus4, this.bonusCollision4, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus5, this.bonusCollision5, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus6, this.bonusCollision6, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus7, this.bonusCollision7, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus8, this.bonusCollision8, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus9, this.bonusCollision9, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus10, this.bonusCollision10, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus11, this.bonusCollision11, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus12, this.bonusCollision12, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus13, this.bonusCollision13, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus14, this.bonusCollision14, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus15, this.bonusCollision15, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus16, this.bonusCollision16, null, this);
+		this.physics.arcade.collide(this.ball, this.bonus17, this.bonusCollision17, null, this);
 		this.physics.arcade.collide(this.ball, this.borderGroup, this.wallCollision, null, this);
 		this.physics.arcade.collide(this.ball, this.levels[this.level-1], this.wallCollision, null, this);
 		this.physics.arcade.overlap(this.ball, this.hole, this.finishLevel, null, this);
-		
+	},
+	bonusCollision1: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus1.destroy();
+	},
+	bonusCollision2: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus2.destroy();
+	},
+	bonusCollision3: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus3.destroy();
+	},
+	bonusCollision4: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus4.destroy();
+	},
+	bonusCollision5: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus5.destroy();
+	},
+	bonusCollision6: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus6.destroy();
+	},
+	bonusCollision7: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus7.destroy();
+	},
+	bonusCollision8: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus8.destroy();
+	},
+	bonusCollision9: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus9.destroy();
+	},
+	bonusCollision10: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus10.destroy();
+	},
+	bonusCollision11: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus11.destroy();
+	},
+	bonusCollision12: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus12.destroy();
+	},
+	bonusCollision13: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus13.destroy();
+	},
+	bonusCollision14: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus14.destroy();
+	},
+	bonusCollision15: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus15.destroy();
+	},
+	bonusCollision16: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus16.destroy();
+	},
+	bonusCollision17: function () {
+		this.points+= 5;
+		this.pointsText.setText("Points: "+this.points);
+		this.bonus17.destroy();
 	},
 	bombCollision: function() {
 		alert('You are dead.');
-			this.game.state.start('Menu');
+		this.game.state.start('Menu');
 	},
 	wallCollision: function() {
 		// Wibracje
@@ -208,10 +320,14 @@ Pokeball.Game.prototype = {
 	finishLevel: function() {
 		if(this.level >= this.maxLevels) {
 			this.totalTimer += this.timer;
-			alert('Congratulations, game completed!\nTotal time of play: '+this.totalTimer+' seconds!');
+			alert('Congratulations, game completed!\nTotal time of play: '+this.totalTimer+' seconds!\n'+
+			'Total points : '+this.points);
 			this.game.state.start('Menu');
 		}
 		else {
+			this.points++;
+			this.pointsText.setText("Points: "+this.points);
+			this.counter++;
 			this.totalTimer += this.timer;
 			this.timer = 0;
 			this.level++;
@@ -224,9 +340,181 @@ Pokeball.Game.prototype = {
 			this.ball.body.velocity.y = 0;
 			this.showLevel();
 
-			if(this.counter == 0) {
-				this.bomb1.destroy();
+			if(this.counter == 1) {
+				this.bonus1.destroy();
+				this.bomb1 = this.add.sprite(140, 195, 'bomb');
+				this.physics.enable(this.bomb1, Phaser.Physics.ARCADE);
+				this.bomb1.anchor.set(0.5);
+				this.bomb1.body.setSize(2, 2);
+
+				this.bomb2 = this.add.sprite(270, 190, 'bomb');
+				this.physics.enable(this.bomb2, Phaser.Physics.ARCADE);
+				this.bomb2.anchor.set(0.5);
+				this.bomb2.body.setSize(2, 2);
+
+				this.bomb3 = this.add.sprite(270, 290, 'bomb');
+				this.physics.enable(this.bomb3, Phaser.Physics.ARCADE);
+				this.bomb3.anchor.set(0.5);
+				this.bomb3.body.setSize(2, 2);
+
+				this.bonus2 = this.add.sprite(160, 290, 'bonus');
+				this.physics.enable(this.bonus2, Phaser.Physics.ARCADE);
+				this.bonus2.anchor.set(0.5);
+				this.bonus2.body.setSize(2, 2);
 			}
+			if(this.counter == 2) {
+				this.bonus2.destroy();
+				this.bomb1.destroy();
+				this.bomb2.destroy();
+				this.bomb3.destroy();
+
+				this.bomb4 = this.add.sprite(170, 300, 'bomb');
+				this.physics.enable(this.bomb4, Phaser.Physics.ARCADE);
+				this.bomb4.anchor.set(0.5);
+				this.bomb4.body.setSize(2, 2);
+
+				this.bonus3 = this.add.sprite(220, 90, 'bonus');
+				this.physics.enable(this.bonus3, Phaser.Physics.ARCADE);
+				this.bonus3.anchor.set(0.5);
+				this.bonus3.body.setSize(2, 2);
+			}
+			if(this.counter == 3) {
+				this.bonus3.destroy();
+				this.bomb4.destroy();
+
+				this.bomb5 = this.add.sprite(80, 205, 'bomb');
+				this.physics.enable(this.bomb5, Phaser.Physics.ARCADE);
+				this.bomb5.anchor.set(0.5);
+				this.bomb5.body.setSize(2, 2);
+				this.bomb6 = this.add.sprite(80, 320, 'bomb');
+				this.physics.enable(this.bomb6, Phaser.Physics.ARCADE);
+				this.bomb6.anchor.set(0.5);
+				this.bomb6.body.setSize(2, 2);
+
+				this.bonus4 = this.add.sprite(60, 80, 'bonus');
+				this.physics.enable(this.bonus4, Phaser.Physics.ARCADE);
+				this.bonus4.anchor.set(0.5);
+				this.bonus4.body.setSize(2, 2);
+
+				this.bonus5 = this.add.sprite(20, 380, 'bonus');
+				this.physics.enable(this.bonus5, Phaser.Physics.ARCADE);
+				this.bonus5.anchor.set(0.5);
+				this.bonus5.body.setSize(2, 2);
+			}
+			if(this.counter == 4) {
+				this.bonus4.destroy();
+				this.bonus5.destroy();
+				this.bomb5.destroy();
+				this.bomb6.destroy();
+
+				this.bomb7 = this.add.sprite(50, 290, 'bomb');
+				this.physics.enable(this.bomb7, Phaser.Physics.ARCADE);
+				this.bomb7.anchor.set(0.5);
+				this.bomb7.body.setSize(2, 2);
+
+				this.bonus6 = this.add.sprite(160, 290, 'bonus');
+				this.physics.enable(this.bonus6, Phaser.Physics.ARCADE);
+				this.bonus6.anchor.set(0.5);
+				this.bonus6.body.setSize(2, 2);
+				this.bonus7 = this.add.sprite(20, 380, 'bonus');
+				this.physics.enable(this.bonus7, Phaser.Physics.ARCADE);
+				this.bonus7.anchor.set(0.5);
+				this.bonus7.body.setSize(2, 2);
+			}
+			if(this.counter == 5) {
+				this.bonus6.destroy();
+				this.bonus7.destroy();
+				this.bomb7.destroy();
+				
+				this.bomb8 = this.add.sprite(40, 290, 'bomb');
+				this.physics.enable(this.bomb8, Phaser.Physics.ARCADE);
+				this.bomb8.anchor.set(0.5);
+				this.bomb8.body.setSize(2, 2);
+
+				this.bonus8 = this.add.sprite(60, 300, 'bonus');
+				this.physics.enable(this.bonus8, Phaser.Physics.ARCADE);
+				this.bonus8.anchor.set(0.5);
+				this.bonus8.body.setSize(2, 2);
+			}
+			if(this.counter == 6) {
+				this.bonus8.destroy();
+				this.bomb8.destroy();
+
+				this.bomb9 = this.add.sprite(270, 300, 'bomb');
+				this.physics.enable(this.bomb9, Phaser.Physics.ARCADE);
+				this.bomb9.anchor.set(0.5);
+				this.bomb9.body.setSize(2, 2);
+				this.bomb10 = this.add.sprite(305, 365, 'bomb');
+				this.physics.enable(this.bomb10, Phaser.Physics.ARCADE);
+				this.bomb10.anchor.set(0.5);
+				this.bomb10.body.setSize(2, 2);
+
+				this.bonus9 = this.add.sprite(240, 300, 'bonus');
+				this.physics.enable(this.bonus9, Phaser.Physics.ARCADE);
+				this.bonus9.anchor.set(0.5);
+				this.bonus9.body.setSize(2, 2);
+
+				this.bonus10 = this.add.sprite(200, 300, 'bonus');
+				this.physics.enable(this.bonus10, Phaser.Physics.ARCADE);
+				this.bonus10.anchor.set(0.5);
+				this.bonus10.body.setSize(2, 2);
+
+				this.bonus11 = this.add.sprite(150, 300, 'bonus');
+				this.physics.enable(this.bonus11, Phaser.Physics.ARCADE);
+				this.bonus11.anchor.set(0.5);
+				this.bonus11.body.setSize(2, 2);
+
+				this.bonus12 = this.add.sprite(100, 364, 'bonus');
+				this.physics.enable(this.bonus12, Phaser.Physics.ARCADE);
+				this.bonus12.anchor.set(0.5);
+				this.bonus12.body.setSize(2, 2);
+
+				this.bonus13 = this.add.sprite(200, 364, 'bonus');
+				this.physics.enable(this.bonus13, Phaser.Physics.ARCADE);
+				this.bonus13.anchor.set(0.5);
+				this.bonus13.body.setSize(2, 2);
+			}
+			if(this.counter == 7) {
+				this.bonus9.destroy();
+				this.bonus10.destroy();
+				this.bonus11.destroy();
+				this.bonus12.destroy();
+				this.bonus13.destroy();
+				this.bomb9.destroy();
+				this.bomb10.destroy();
+				
+				this.bomb11 = this.add.sprite(71, 330, 'bomb');
+				this.physics.enable(this.bomb11, Phaser.Physics.ARCADE);
+				this.bomb11.anchor.set(0.5);
+				this.bomb11.body.setSize(2, 2);
+				this.bomb12 = this.add.sprite(307, 150, 'bomb');
+				this.physics.enable(this.bomb12, Phaser.Physics.ARCADE);
+				this.bomb12.anchor.set(0.5);
+				this.bomb12.body.setSize(2, 2);
+				this.bomb13 = this.add.sprite(188, 250, 'bomb');
+				this.physics.enable(this.bomb13, Phaser.Physics.ARCADE);
+				this.bomb13.anchor.set(0.5);
+				this.bomb13.body.setSize(2, 2);
+
+				this.bonus14 = this.add.sprite(128, 240, 'bonus');
+				this.physics.enable(this.bonus14, Phaser.Physics.ARCADE);
+				this.bonus14.anchor.set(0.5);
+				this.bonus14.body.setSize(2, 2);
+				this.bonus15 = this.add.sprite(306, 240, 'bonus');
+				this.physics.enable(this.bonus15, Phaser.Physics.ARCADE);
+				this.bonus15.anchor.set(0.5);
+				this.bonus15.body.setSize(2, 2);
+
+				this.bonus16 = this.add.sprite(306, 300, 'bonus');
+				this.physics.enable(this.bonus16, Phaser.Physics.ARCADE);
+				this.bonus16.anchor.set(0.5);
+				this.bonus16.body.setSize(2, 2);
+				this.bonus17 = this.add.sprite(306, 380, 'bonus');
+				this.physics.enable(this.bonus17, Phaser.Physics.ARCADE);
+				this.bonus17.anchor.set(0.5);
+				this.bonus17.body.setSize(2, 2);
+			}
+
 		}
 	}
 };
