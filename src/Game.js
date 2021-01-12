@@ -303,8 +303,8 @@ Pokeball.Game.prototype = {
 		this.bonus17.destroy();
 	},
 	bombCollision: function() {
-		alert('You are dead.');
 		this.game.state.start('Game');
+		alert('You are dead.\n'+ 'Total points : '+this.points);
 	},
 	wallCollision: function() {
 		// Wibracje
