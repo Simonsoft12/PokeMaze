@@ -21,6 +21,6 @@ Pokeball.Preloader.prototype = {
 		this.load.spritesheet('button-start', 'img/button-start.png', 146, 51);
 	},
 	create: function() {
-		this.game.state.start('Menu');
+		this.game.state.start('Game');
 	}
 };
