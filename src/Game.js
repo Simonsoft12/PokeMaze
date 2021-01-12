@@ -304,7 +304,7 @@ Pokeball.Game.prototype = {
 	},
 	bombCollision: function() {
 		alert('You are dead.');
-		this.game.state.start('Menu');
+		this.game.state.start('Game');
 	},
 	wallCollision: function() {
 		// Wibracje
@@ -322,7 +322,7 @@ Pokeball.Game.prototype = {
 			this.totalTimer += this.timer;
 			alert('Congratulations, game completed!\nTotal time of play: '+this.totalTimer+' seconds!\n'+
 			'Total points : '+this.points);
-			this.game.state.start('Menu');
+			this.game.state.start('Game');
 		}
 		else {
 			this.points++;
