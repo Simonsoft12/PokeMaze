@@ -1,0 +1,17 @@
+Gra polega na trafieniu Pokeballem ( kulką ) do czarnej dziury w celu przedostania się do następnego poziomu.
+Po drodze możemy zbierać bonusy ( złote kule ) i musimy omijać bomby.
+Mogłem zrobić tak, że mamy kilka żyć i bonusy nam je odnawiają, ale stwiedziłem, że lepiej będzie jak gra będzie 
+trudna i trzeba będzie się troche namęczyć żeby dojść do końca, dlatego mamy tylko jedno życie i musimy nazbierać
+jak najwiecej złotych kul.
+
+Na samej górze mamy Menu, liczy się nam czas poziomu, punkty, podaje poziom oraz liczy ogólny czas gry. 
+Dodatkowo jest możliwość pauzy.
+
+Dynamiczne skalowanie rozdzielczości jest, jednak stwierdziłem, że nie ma sensu obracać gry jeśli wejdziemy w 
+landscape mode. Po prostu tak ma być, żeby wszystko ładnie było widać i było to grywalne.
+
+Największym problemem okazało się dostosowanie gry na IOS'a, na Androida nie było problemów, natomiast
+z IOS'em trochę się męczyłem, jednak po wielu próbach, okazało się, że wcale nie jest to takie trudne,
+chociaż droga do tego była długa.
+
+

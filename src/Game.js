@@ -1,6 +1,9 @@
 Pokeball.Game = function(game) {};
 Pokeball.Game.prototype = {
 	create: function() {
+		const modalEl = document.querySelector('#modalEl');
+		const givePermissionBtn = document.querySelector('#givePermissionBtn');
+
 		this.add.sprite(0, 0, 'screen-bg');
 		this.add.sprite(0, 0, 'panel');
 		this.physics.startSystem(Phaser.Physics.ARCADE);

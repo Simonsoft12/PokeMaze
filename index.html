@@ -18,11 +18,22 @@
 			<script src="src/Game.js?v=1.1"></script>
 </head>
 <body>
-	<button onclick="testDeviceOrientation()" style="background-color: rgb(10, 106, 182);
-		font-size:20px;color:#fff;border-radius:2%;margin: 0 auto ;display: block;">Click for Permission</button>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<div class="fixed inset-0 flex items-center justify-center" id="modalEl">
+        <div class="bg-transparent max-w-md w-full p-6 text-center">
+            
+            <div>
+                <button onclick="testDeviceOrientation();" 
+                class="bg-yellow-500 text-white w-full py-3  rounded-full text-sm"
+                id ="givePermissionBtn">Give permission first!</button>
+            </div>
+        </div>
+    </div>
 	
 	<script>
 		function testDeviceOrientation() {
+			const modalEl = document.querySelector('#modalEl');
+			modalEl.style.display = 'none';
 			if (typeof DeviceOrientationEvent !== 'function') {
 				return setResult('DeviceOrientationEvent not detected')
 			}
