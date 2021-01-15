@@ -15,7 +15,7 @@ Pokeball.Game.prototype = {
 		this.totalTimer = 0;
 		this.level = 1;
 		this.maxLevels = 8;
-		this.movementForce = 2;
+		this.movementForce = 1.5;
 		this.ballStartPos = { x: Pokeball._WIDTH*0.5, y: 450 };
 		this.counter = 0;
 
