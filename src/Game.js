@@ -315,8 +315,8 @@ Pokeball.Game.prototype = {
 		var x = e.gamma; // range [-90,90], left-right
 		var y = e.beta;  // range [-180,180], top-bottom
 		var z = e.alpha; // range [0,360], up-down
-		Pokeball._player.body.velocity.x += x*0.5;
-		Pokeball._player.body.velocity.y += y*0.4;
+		Pokeball._player.body.velocity.x += x*0.4;
+		Pokeball._player.body.velocity.y += y*0.2;
 	},
 	finishLevel: function() {
 		if(this.level >= this.maxLevels) {
