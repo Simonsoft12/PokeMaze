@@ -15,7 +15,7 @@ Pokeball.Game.prototype = {
 		this.totalTimer = 0;
 		this.level = 1;
 		this.maxLevels = 8;
-		this.movementForce = 1.5;
+		this.movementForce = 10;
 		this.ballStartPos = { x: Pokeball._WIDTH*0.5, y: 450 };
 		this.counter = 0;
 
@@ -316,7 +316,7 @@ Pokeball.Game.prototype = {
 		var y = e.beta;  // range [-180,180], top-bottom
 		var z = e.alpha; // range [0,360], up-down
 		Pokeball._player.body.velocity.x += x*0.2;
-		Pokeball._player.body.velocity.y += y*0.2;
+		Pokeball._player.body.velocity.y += y*0.1;
 	},
 	finishLevel: function() {
 		if(this.level >= this.maxLevels) {
