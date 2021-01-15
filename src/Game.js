@@ -15,7 +15,7 @@ Pokeball.Game.prototype = {
 		this.totalTimer = 0;
 		this.level = 1;
 		this.maxLevels = 8;
-		this.movementForce = 10;
+		this.movementForce = 3;
 		this.ballStartPos = { x: Pokeball._WIDTH*0.5, y: 450 };
 		this.counter = 0;
 
@@ -35,7 +35,7 @@ Pokeball.Game.prototype = {
 		this.hole = this.add.sprite(Pokeball._WIDTH*0.5, 90, 'hole');
 		this.physics.enable(this.hole, Phaser.Physics.ARCADE);
 		this.hole.anchor.set(0.5);
-		this.hole.body.setSize(2, 2);
+		this.hole.body.setSize(15, 15);
 
 		this.ball = this.add.sprite(this.ballStartPos.x, this.ballStartPos.y, 'ball');
 		this.ball.anchor.set(0.5);
@@ -187,8 +187,6 @@ Pokeball.Game.prototype = {
 			this.ball.body.velocity.y += this.movementForce;
 		}
 		this.physics.arcade.collide(this.ball, this.bomb1, this.bombCollision, null, this);
-		this.physics.arcade.collide(this.ball, this.bomb2, this.bombCollision, null, this);
-		this.physics.arcade.collide(this.ball, this.bomb3, this.bombCollision, null, this);
 		this.physics.arcade.collide(this.ball, this.bomb4, this.bombCollision, null, this);
 		this.physics.arcade.collide(this.ball, this.bomb5, this.bombCollision, null, this);
 		this.physics.arcade.collide(this.ball, this.bomb6, this.bombCollision, null, this);
@@ -350,16 +348,6 @@ Pokeball.Game.prototype = {
 				this.bomb1.anchor.set(0.5);
 				this.bomb1.body.setSize(2, 2);
 
-				this.bomb2 = this.add.sprite(270, 190, 'bomb');
-				this.physics.enable(this.bomb2, Phaser.Physics.ARCADE);
-				this.bomb2.anchor.set(0.5);
-				this.bomb2.body.setSize(2, 2);
-
-				this.bomb3 = this.add.sprite(270, 290, 'bomb');
-				this.physics.enable(this.bomb3, Phaser.Physics.ARCADE);
-				this.bomb3.anchor.set(0.5);
-				this.bomb3.body.setSize(2, 2);
-
 				this.bonus2 = this.add.sprite(160, 290, 'bonus');
 				this.physics.enable(this.bonus2, Phaser.Physics.ARCADE);
 				this.bonus2.anchor.set(0.5);
@@ -368,8 +356,6 @@ Pokeball.Game.prototype = {
 			if(this.counter == 2) {
 				this.bonus2.destroy();
 				this.bomb1.destroy();
-				this.bomb2.destroy();
-				this.bomb3.destroy();
 
 				this.bomb4 = this.add.sprite(170, 300, 'bomb');
 				this.physics.enable(this.bomb4, Phaser.Physics.ARCADE);

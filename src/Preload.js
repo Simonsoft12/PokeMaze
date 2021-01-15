@@ -6,7 +6,7 @@ Pokeball.Preloader.prototype = {
 		this.load.setPreloadSprite(this.preloadBar);
 
 		this.load.image('ball', 'img/pokeball.png');
-		this.load.image('hole', 'img/hole.png');
+		this.load.image('hole', 'img/hole2.png');
 		this.load.image('bonus', 'img/bonus.png');
 		this.load.image('bomb', 'img/bomb.png');
 		this.load.image('element-w', 'img/wallX.png');
