@@ -35,7 +35,7 @@ Pokeball.Game.prototype = {
 		this.hole = this.add.sprite(Pokeball._WIDTH*0.5, 90, 'hole');
 		this.physics.enable(this.hole, Phaser.Physics.ARCADE);
 		this.hole.anchor.set(0.5);
-		this.hole.body.setSize(15, 15);
+		this.hole.body.setSize(22, 22);
 
 		this.ball = this.add.sprite(this.ballStartPos.x, this.ballStartPos.y, 'ball');
 		this.ball.anchor.set(0.5);
