@@ -1,4 +1,4 @@
-<b>Simple PokeMaze Game</b>
+<b>Simple PokeMaze Game.</b>
 
 # How to begin:
 
