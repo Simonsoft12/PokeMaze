@@ -1,4 +1,6 @@
-# Simple PokeMaze Game
+<b>Simple PokeMaze Game</b>
+
+# How to begin:
 
 1. Open link.
 2. Allow necessary permissions.
